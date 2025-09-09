@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Product, Category } from "../../app/services/api";
 import { formatPrice } from "../ProductCard/ProductCard";
 import { useCart } from "../../app/context/CartContext";
@@ -26,11 +27,9 @@ interface DetailsProductProps {
 }
 
 export default function DetailsProduct({ product, categories }: DetailsProductProps) {
-  // 🔹 Hooks sempre no topo, fora de qualquer condicional
   const router = useRouter();
   const { addItem } = useCart();
   const { showToast } = useToast();
-  const searchParams = useSearchParams();
 
   const fromCategory = sessionStorage.getItem("fromCategory");
 
@@ -58,7 +57,7 @@ export default function DetailsProduct({ product, categories }: DetailsProductPr
             }
           }}
         >
-          <img src="/img/BackButton.png" alt="Voltar" />
+          <Image src="/img/BackButton.png" alt="Voltar" width={24} height={24} />
           Voltar
         </BackButton>
       </BackButtonWrapper>
@@ -77,7 +76,7 @@ export default function DetailsProduct({ product, categories }: DetailsProductPr
           </DescriptionWrapper>
 
           <AddButton onClick={handleAddToCart}>
-            <img src="/img/Car.png" alt="Adicionar" />
+            <Image src="/img/Car.png" alt="Adicionar" width={24} height={24} />
             Adicionar
           </AddButton>
         </ProductDetails>
