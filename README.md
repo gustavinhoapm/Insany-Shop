@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Insany-Shop
 
-## Getting Started
+**Autor:** Gustavo Agostinho Papa Monteiro
 
-First, run the development server:
+## Sobre o Projeto
 
-```bash
+O **Insany-Shop** é uma aplicação de e-commerce construída com **Next.js 13+** utilizando o **App Router**, **React**, **TypeScript** e **Styled Components**.
+
+O projeto permite:
+
+- Visualizar todos os produtos disponíveis.
+- Filtrar produtos por categoria.
+- Ordenar produtos por preço, novidades ou mais vendidos.
+- Pesquisar produtos pelo nome.
+- Visualizar detalhes de cada produto em uma página dedicada.
+- Adicionar produtos ao carrinho de compras.
+
+O layout é responsivo e o sistema de carrinho funciona com contexto React, mantendo o estado entre páginas. A aplicação também está preparada para deployment na **Vercel**.
+
+---
+
+## Tecnologias Utilizadas
+
+- **Next.js 13+** (App Router)
+- **React 18**
+- **TypeScript**
+- **Styled Components**
+- **Context API** para carrinho e toast notifications
+- **Vercel** para deployment
+- **PostgreSQL** (para o backend, caso exista)
+- **Axios / Fetch API** para requisições
+
+---
+
+## Rodando Localmente
+
+Siga os passos abaixo para rodar o projeto na sua máquina local:
+
+# Clone o repositório
+
+git clone https://github.com/seu-usuario/Insany-Shop.git
+
+# Entre na pasta do projeto
+
+cd Insany-Shop
+
+# Instale as dependências
+
+npm install
+
+# ou
+
+yarn install
+
+# Inicie o servidor de desenvolvimento
+
 npm run dev
-# or
+
+# ou
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Abra o navegador e acesse a aplicação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+http://localhost:3000
