@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Product, Category } from "../../app/services/api";
 import { formatPrice } from "../ProductCard/ProductCard";
 import { useCart } from "../../app/context/CartContext";
@@ -26,15 +26,19 @@ interface DetailsProductProps {
 }
 
 export default function DetailsProduct({ product, categories }: DetailsProductProps) {
+  // 🔹 Hooks sempre no topo, fora de qualquer condicional
   const router = useRouter();
   const { addItem } = useCart();
   const { showToast } = useToast();
+  const searchParams = useSearchParams();
 
-  if (!product) return <p>Produto não encontrado.</p>;
-
-const searchParams = useSearchParams();
-  const category = categories.find((cat) => cat.id === product.category);
   const fromCategory = sessionStorage.getItem("fromCategory");
+
+  if (!product) {
+    return <p>Produto não encontrado.</p>;
+  }
+
+  const category = categories.find((cat) => cat.id === product.category);
 
   const handleAddToCart = () => {
     addItem(product, 1);
@@ -43,35 +47,28 @@ const searchParams = useSearchParams();
 
   return (
     <main>
-
       <BackButtonWrapper>
-
-<BackButton
-  onClick={() => {
-    if (fromCategory) {
-      router.push(`/?category=${fromCategory}`);
-      sessionStorage.removeItem("fromCategory"); 
-    } else {
-      router.back();
-    }
-  }}
->
-  <img src="/img/BackButton.png" alt="Voltar" />
-  Voltar
-</BackButton>
-
+        <BackButton
+          onClick={() => {
+            if (fromCategory) {
+              router.push(`/?category=${fromCategory}`);
+              sessionStorage.removeItem("fromCategory");
+            } else {
+              router.back();
+            }
+          }}
+        >
+          <img src="/img/BackButton.png" alt="Voltar" />
+          Voltar
+        </BackButton>
       </BackButtonWrapper>
 
       <ProductSection>
-
         <ProductImage src={product.image} alt={product.name} />
 
         <ProductDetails>
-
           <CategoryName>{category?.name || "Sem categoria"}</CategoryName>
-
           <ProductTitle>{product.name}</ProductTitle>
-
           <ProductPrice>R$ {formatPrice(product.price)}</ProductPrice>
 
           <DescriptionWrapper>
@@ -83,9 +80,7 @@ const searchParams = useSearchParams();
             <img src="/img/Car.png" alt="Adicionar" />
             Adicionar
           </AddButton>
-
         </ProductDetails>
-
       </ProductSection>
     </main>
   );
