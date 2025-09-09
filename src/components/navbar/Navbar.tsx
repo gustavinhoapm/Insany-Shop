@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image"; // 👈 importa o Image
 import { useCart } from "../../app/context/CartContext";
 import {
   Nav,
@@ -9,7 +10,6 @@ import {
   Logo,
   Right,
   SearchContainer,
-  SearchIcon,
   SearchInput,
   CartButton,
   Badge,
@@ -43,11 +43,21 @@ const Navbar = ({ onSearchResults }: NavbarProps) => {
               value={query}
               onChange={handleChange}
             />
-            <SearchIcon src="/img/search.png" alt="Buscar" />
+            <Image
+              src="/img/search.png"
+              alt="Buscar"
+              width={20}
+              height={20}
+            />
           </SearchContainer>
 
           <CartButton onClick={() => router.push("/carrinho")}>
-            <img src="/img/shoppingBag.png" alt="Carrinho" />
+            <Image
+              src="/img/shoppingBag.png"
+              alt="Carrinho"
+              width={24}
+              height={24}
+            />
             {total > 0 && <Badge>{total}</Badge>}
           </CartButton>
         </Right>

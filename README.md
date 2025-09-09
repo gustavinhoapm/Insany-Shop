@@ -17,6 +17,7 @@ O projeto permite:
 
 O layout é responsivo e o sistema de carrinho funciona com contexto React, mantendo o estado entre páginas. A aplicação também está preparada para deployment na **Vercel**.
 
+link: https://insany-shop-seven.vercel.app/
 ---
 
 ## Tecnologias Utilizadas

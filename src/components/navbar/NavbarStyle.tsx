@@ -69,7 +69,7 @@ export const SearchContainer = styled.div`
   }
 `;
 
-export const SearchIcon = styled.img`
+export const SearchIcon = styled.div`
   position: absolute;
   right: 10px;
   width: 24px;
