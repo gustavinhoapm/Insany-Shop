@@ -28,7 +28,6 @@ link: https://insany-shop-seven.vercel.app/
 - **Styled Components**
 - **Context API** para carrinho e toast notifications
 - **Vercel** para deployment
-- **PostgreSQL** (para o backend, caso exista)
 - **Axios / Fetch API** para requisições
 
 ---
